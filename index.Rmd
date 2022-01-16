@@ -1,0 +1,84 @@
+---
+title: "docker 이미지 설치하기"
+description: |
+  docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다.
+site: distill::distill_website
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3  
+author:
+  - name: 유충현 
+    url: https://choonghyunryu.github.io/
+    affiliation: Tidyverse Korea
+date: 2022-01-16
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      collapse = FALSE,
+                      fig.align = "center")
+
+library(shiny)
+library(htmltools)
+
+xaringanExtra :: use_panelset()
+```
+
+```{r, echo=FALSE, eval=TRUE}
+p(align = "middle",
+  img(src = "img/shiny-logo.png", width = "20%"),
+  img(src = "img/docker-logo.png",  width = "30%")
+)
+```
+
+```{r, preface, echo=FALSE}
+div(class = "preface", 
+    h4("들어가기"),
+    "Shiny 서버 docker 이미지를 설치하여, 컨테이너를 구동하는 방법을 설명합니다.", br(),
+    "docker가 설치된 환경을 전제로 설명합니다. docker 환경 구축하는 방법은 다루지 않습니다.")
+```
+
+<br>
+
+## Shiny 서버를 사용하는 이유
+
+RStudio에서 Shiny 애플리케이션을 실행하면 애플리케이션을 종료하기 전까지 RStudio를 사용할 수 없습니다. 그러나 **Shiny 서버에서 Shiny 애플리케이션을 구동하면, 언제든지 웹 브라우저에서 애플리케이션을 실행할 수 있고 RStudio는 애플리케이션의 구동과 독립적으로 사용할 수 있습니다.** 
+
+Shiny 서버를 사용하는 이유에서 눈치챘겠지만, **이 글은 Shiny 애플리케이션을 호스팅할 목적의 작업이라기 보다는 개인 노트북에 Shiny 애플리케이션 데모 환경을 구축하기 위함입니다. 그러나 Shiny 애플리케이션을 호스팅할 목적으로도 활용할 수 있습니다.**
+
+## Shiny 서버 설치하기
+### docker 이미지 가져오기
+Shiny 서버의 운영을 위해서 [rocker/shiny-verse](https://hub.docker.com/r/rocker/shiny-verse){target="_blank"} 이미지를 가져옵니다. 이 이미지는  Shiny 이미지와 Tidyverse 패키지를 포함하고 있습니다.
+
+* rocker/shiny + rocker/shiny-verse
+
+다음 명령으로 docker 허브 저장소로부터 docker 이미지를 가져옵니다.
+
+```{r, eval=FALSE, echo=TRUE}
+pull rocker/shiny-verse
+```
+
+이미지 목록에서 가져온 Shiny 이미지를 확인할 수 있습니다.
+
+```{r, eval=FALSE, echo=TRUE}
+docker images 
+```
+
+### Shiny 서버 실행하기
+
+다음 명령으로 Shiny 서버를 실행합니다.
+
+```{r, eval=FALSE, echo=TRUE}
+docker run --rm -p 3838:3838 rocker/shiny-verse
+```
+
+서버가 실행되면, http://localhost:3838 URL에서 Shiny 데모 애플리케이션이 실행됨을 확인할 수 있습니다.
+
+![Shiny 데모 애플리케이션](img/demo.png)
+
+## 결언
+
+docker 컨테이너로 Shiny 데모 애플리케이션을 구동할 수 있습니다. 그러나 사용자가 개발한 애플리케이션을 구동하기 위해서는 docker의 환경 설정이 필요해 보입니다.

@@ -1,0 +1,16 @@
+name: "docker 기반의 Shiny 서버 운용"
+title: "docker 기반의 Shiny 서버 운용"
+description: |
+  My Website
+output_dir: "docs"
+navbar:
+  right:
+    - text: "docker 이미지 설치하기"
+      href: index.html
+    - text: "docker 환경 설정하기"
+      href: custom_docker.html      
+output: 
+  distill::distill_article:
+    theme: theme.css
+    includes:
+      after_body: footer.html       
