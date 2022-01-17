@@ -69,16 +69,16 @@ docker images
 
 ### Shiny 서버 실행하기
 
-다음 명령으로 Shiny 서버를 실행합니다.
+다음 run 명령으로 docker 컨테이너를 생성하고 실행합니다. 즉, Shiny 서버를 실행합니다.
 
 ```{r, eval=FALSE, echo=TRUE}
 docker run --rm -p 3838:3838 rocker/shiny-verse
 ```
 
-서버가 실행되면, http://localhost:3838 URL에서 Shiny 데모 애플리케이션이 실행됨을 확인할 수 있습니다.
+서버가 실행되면, http://localhost:3838 URL에서 Shiny 데모 애플리케이션을 실행할 수 있습니다.
 
 ![Shiny 데모 애플리케이션](img/demo.png)
 
 ## 결언
 
-docker 컨테이너로 Shiny 데모 애플리케이션을 구동할 수 있습니다. 그러나 사용자가 개발한 애플리케이션을 구동하기 위해서는 docker의 환경 설정이 필요해 보입니다.
+docker 컨테이너로 Shiny 데모 애플리케이션을 구동할 수 있습니다. 그러나 아직은 사용자가 개발한 애플리케이션을 구동하기 위한 docker 환경은 아닙니다. 추가적인 환경 설정이 필요해 보입니다.

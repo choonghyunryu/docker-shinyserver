@@ -85,33 +85,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>docker 기반의 Shiny 서버 운용: docker 이미지 설치하기</title>
+  <title>docker 기반의 Shiny 서버 운용: docker 이미지 만들기</title>
 
-  <meta property="description" itemprop="description" content="docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다."/>
+  <meta property="description" itemprop="description" content="Shiny 애플리케이션에 필요로 하는 R 패키지를 추가로 설치하여 새로운 docker 이미지를 생성합니다."/>
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-01-16"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-01-16"/>
+  <meta property="article:published" itemprop="datePublished" content="2022-01-17"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-01-17"/>
   <meta name="article:author" content="유충현"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="docker 기반의 Shiny 서버 운용: docker 이미지 설치하기"/>
+  <meta property="og:title" content="docker 기반의 Shiny 서버 운용: docker 이미지 만들기"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다."/>
+  <meta property="og:description" content="Shiny 애플리케이션에 필요로 하는 R 패키지를 추가로 설치하여 새로운 docker 이미지를 생성합니다."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="docker 기반의 Shiny 서버 운용"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="docker 기반의 Shiny 서버 운용: docker 이미지 설치하기"/>
-  <meta property="twitter:description" content="docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다."/>
+  <meta property="twitter:title" content="docker 기반의 Shiny 서버 운용: docker 이미지 만들기"/>
+  <meta property="twitter:description" content="Shiny 애플리케이션에 필요로 하는 R 패키지를 추가로 설치하여 새로운 docker 이미지를 생성합니다."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","output","author","date"]}},"value":[{"type":"character","attributes":{},"value":["docker 이미지 설치하기"]},{"type":"character","attributes":{},"value":["docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["유충현"]},{"type":"character","attributes":{},"value":["https://choonghyunryu.github.io/"]},{"type":"character","attributes":{},"value":["Tidyverse Korea"]}]}]},{"type":"character","attributes":{},"value":["2022-01-16"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","output","author","date"]}},"value":[{"type":"character","attributes":{},"value":["docker 이미지 만들기"]},{"type":"character","attributes":{},"value":["Shiny 애플리케이션에 필요로 하는 R 패키지를 추가로 설치하여 새로운 docker 이미지를 생성합니다.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["유충현"]},{"type":"character","attributes":{},"value":["https://choonghyunryu.github.io/"]},{"type":"character","attributes":{},"value":["Tidyverse Korea"]}]}]},{"type":"character","attributes":{},"value":["2022-01-17"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2505,7 +2505,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"docker 이미지 설치하기","description":"docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다.","authors":[{"author":"유충현","authorURL":"https://choonghyunryu.github.io/","affiliation":"Tidyverse Korea","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-01-16T00:00:00.000+00:00","citationText":"유충현, 2022"}
+{"title":"docker 이미지 만들기","description":"Shiny 애플리케이션에 필요로 하는 R 패키지를 추가로 설치하여 새로운 docker 이미지를 생성합니다.","authors":[{"author":"유충현","authorURL":"https://choonghyunryu.github.io/","affiliation":"Tidyverse Korea","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-01-17T00:00:00.000+00:00","citationText":"유충현, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2528,16 +2528,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>docker 이미지 설치하기</h1>
+<h1>docker 이미지 만들기</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>docker 기반으로 Shiny 서버를 운영하기 위한 기초작업을 수행합니다.</p></p>
+<p><p>Shiny 애플리케이션에 필요로 하는 R 패키지를 추가로 설치하여 새로운 docker 이미지를 생성합니다.</p></p>
 </div>
 
 <div class="d-byline">
   유충현 <a href="https://choonghyunryu.github.io/" class="uri">https://choonghyunryu.github.io/</a> (Tidyverse Korea)
   
-<br/>2022-01-16
+<br/>2022-01-17
 </div>
 
 <div class="d-article">
@@ -2545,60 +2545,132 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#shiny-서버를-사용하는-이유">Shiny 서버를 사용하는 이유</a></li>
-<li><a href="#shiny-서버-설치하기">Shiny 서버 설치하기</a>
+<li><a href="#dockerfile-만들기">Dockerfile 만들기</a>
 <ul>
-<li><a href="#docker-이미지-가져오기">docker 이미지 가져오기</a></li>
-<li><a href="#shiny-서버-실행하기">Shiny 서버 실행하기</a></li>
+<li><a href="#베이스-이미지-가져오기">베이스 이미지 가져오기</a></li>
+<li><a href="#개발-라이브러리-설치하기">개발 라이브러리 설치하기</a></li>
+<li><a href="#r-패키지-설치하기">R 패키지 설치하기</a></li>
+<li><a href="#포트지정">포트지정</a></li>
 </ul></li>
+<li><a href="#docker-이미지-생성">docker 이미지 생성</a></li>
+<li><a href="#컨테이너-생성-및-실행">컨테이너 생성 및 실행</a>
+<ul>
+<li><a href="#기존-컨테이너와-이미지-삭제">기존 컨테이너와 이미지 삭제</a></li>
+<li><a href="#컨테이너-생성-및-실행-1">컨테이너 생성 및 실행</a></li>
+</ul></li>
+<li><a href="#bitstat-애플리케이션-실행">BitStat 애플리케이션 실행</a></li>
 <li><a href="#결언">결언</a></li>
 </ul>
 </nav>
 </div>
+<h2 id="dockerfile-만들기">Dockerfile 만들기</h2>
+<p>이제 완전하게 Shiny 애플리케이션이 운용될 docker 컨테이너를 만들고 실행할 차례입니다.</p>
+<p>Dockerfile은 컨테이너 내부에 유틸리티나 R 패키지를 설치할 수 있는 방법을 제공합니다. 즉, rocker/shiny-verse 이미지에서 지원하지 못했던, 애플리케이션을 실행시키는데 필요한 패키지를 설치할 수 있습니다.</p>
+<p>다음과 같은 내용의 Dockerfile 파일을 작성합니다.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p align="middle">
-<img src="img/shiny-logo.png" width="20%"/>
-<img src="img/docker-logo.png" width="30%"/>
-</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FROM rocker<span class="sc">/</span>shiny<span class="sc">:</span>latest</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># system libraries of general use</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>RUN apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> apt<span class="sc">-</span>get install <span class="sc">-</span>y \</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    libxml2<span class="sc">-</span>dev \</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    libcairo2<span class="sc">-</span>dev \</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    libsqlite3<span class="sc">-</span>dev \</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    openjdk<span class="dv">-11</span><span class="sc">-</span>jdk \</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    liblzma<span class="sc">-</span>dev \</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    libbz2<span class="sc">-</span>dev \</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    libssl<span class="sc">-</span>dev</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># install R packages required</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;rJava&#39;,              repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;dlookr&#39;,             repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinyjs&#39;,            repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinydashboard&#39;,     repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinydashboardPlus&#39;, repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinyWidgets&#39;,       repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinybusy&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinythemes&#39;,        repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;colourpicker&#39;,       repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;reactable&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;glue&#39;,               repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;xlsx&#39;,               repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;flextable&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;googleVis&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;readr&#39;,              repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;plotly&#39;,             repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span></code></pre></div>
 </div>
+<h3 id="베이스-이미지-가져오기">베이스 이미지 가져오기</h3>
+<p>다음 <strong>FROM 명령어</strong>는 docker hub에서 ‘rocker/shiny’ 이미지의 최신 버전(lasett)을 가져오라는 의미입니디. 이 이미지를 베이스 이미지로 사용할 것입니다. 이미 앞에서 사용했던 이미지입니다.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="preface">
-<h4>들어가기</h4>
-Shiny 서버 docker 이미지를 설치하여, 컨테이너를 구동하는 방법을 설명합니다.
-<br/>
-docker가 설치된 환경을 전제로 설명합니다. docker 환경 구축하는 방법은 다루지 않습니다.
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FROM rocker<span class="sc">/</span>shiny<span class="sc">:</span>latest</span></code></pre></div>
 </div>
+<h3 id="개발-라이브러리-설치하기">개발 라이브러리 설치하기</h3>
+<p>다음 <strong>RUN 명령어</strong>는 컨테이너 안의 Linux에서 Shell 명령어를 수행하라는 의미입니다.</p>
+<p>다수의 R 패키지는 Linux의 유틸리티나 동적 라이브러리를 인터페이스하여 구현합니다. 예를 들면 아래 libsqlite3-dev는 SQLite를 사용하기 위해서 sqlite3 라이브러리를 설치합니다.</p>
+<p>이를 위해서 Linux Shell ‘apt-get update &amp;&amp; apt-get install -y’ 구문으로 개발 라이브러리를 설치합니다.</p>
+<p>R 패키지에서 설치하기 까다로운 <strong>rJava 패키지</strong>는 JVM(Java Virtual Machine)을 인터페이스하기 위해서 JDK를 설치해야 합니다. 이를 위해서 JDK 11 버전인 openjdk-11-jdk를 설치합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># system libraries of general use</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RUN apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> apt<span class="sc">-</span>get install <span class="sc">-</span>y \</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    libxml2<span class="sc">-</span>dev \</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    libcairo2<span class="sc">-</span>dev \</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    libsqlite3<span class="sc">-</span>dev \</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    openjdk<span class="dv">-11</span><span class="sc">-</span>jdk \</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    liblzma<span class="sc">-</span>dev \</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    libbz2<span class="sc">-</span>dev \</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    libssl<span class="sc">-</span>dev</span></code></pre></div>
 </div>
-<p><br></p>
-<h2 id="shiny-서버를-사용하는-이유">Shiny 서버를 사용하는 이유</h2>
-<p>RStudio에서 Shiny 애플리케이션을 실행하면 애플리케이션을 종료하기 전까지 RStudio를 사용할 수 없습니다. 그러나 <strong>Shiny 서버에서 Shiny 애플리케이션을 구동하면, 언제든지 웹 브라우저에서 애플리케이션을 실행할 수 있고 RStudio는 애플리케이션의 구동과 독립적으로 사용할 수 있습니다.</strong></p>
-<p>Shiny 서버를 사용하는 이유에서 눈치챘겠지만, <strong>이 글은 Shiny 애플리케이션을 호스팅할 목적의 작업이라기 보다는 개인 노트북에 Shiny 애플리케이션 데모 환경을 구축하기 위함입니다. 그러나 Shiny 애플리케이션을 호스팅할 목적으로도 활용할 수 있습니다.</strong></p>
-<h2 id="shiny-서버-설치하기">Shiny 서버 설치하기</h2>
-<h3 id="docker-이미지-가져오기">docker 이미지 가져오기</h3>
-<p>Shiny 서버의 운영을 위해서 <a href="https://hub.docker.com/r/rocker/shiny-verse" target="_blank">rocker/shiny-verse</a> 이미지를 가져옵니다. 이 이미지는 Shiny 이미지와 Tidyverse 패키지를 포함하고 있습니다.</p>
+<h3 id="r-패키지-설치하기">R 패키지 설치하기</h3>
+<p>다음 <strong>RUN 명령어</strong>는 <strong>R 유틸리티</strong>로 R 패키지를 설치합니다. -e 옵션은 R이 수행할 R 스크립트를 지정하는 옵션입니다. 따옴표 안의 R 스크립트로 패키지를 설치하게 됩니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;rJava&#39;, repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span></code></pre></div>
+</div>
+<h3 id="포트지정">포트지정</h3>
+<p>컨테이너가 사용할 포트를 지정하기 위해서 <strong>EXPOSE</strong> 명령어를 사용하지 않아도 됩니다. 베이스 이미지로 ’rocker/shiny’를 사용했기 때문입니다. 이 베이스 이미지에 이미 <strong>EXPOSE</strong> 명령어로 3838 포트를 컨테이너가 사용할 수 있도록 설정되어 있기 때문입니다.</p>
+<h2 id="docker-이미지-생성">docker 이미지 생성</h2>
+<p>앞에서 만든 Dockerfile는 ./shiny-docker 경로에 저장했습니다. 이 Dockerfile을 빌드해서 docker 이미지를 생성합니다.</p>
+<p>build 명령어로 이미지를 생성합니다. -t 옵션은 생성할 이미지의 이름을 지정합니다. 이미지 이름을 ’shiny’로 지정했습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>docker build <span class="sc">-</span>t shiny<span class="sc">:</span>first .<span class="sc">/</span>shiny<span class="sc">-</span>docker</span></code></pre></div>
+</div>
+<h2 id="컨테이너-생성-및-실행">컨테이너 생성 및 실행</h2>
+<h3 id="기존-컨테이너와-이미지-삭제">기존 컨테이너와 이미지 삭제</h3>
+<p>이제 앞에서 만들었던 ‘rocker/shiny-verse’ 이미지와 ‘shiny-server’ 컨테이너는 필요가 없어졌습니다. 그래서 다음처럼 컨테이너와 이미지를 차례대로 삭제합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>docker rm <span class="sc">-</span>f shiny<span class="sc">-</span>server</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>docker rmi rocker<span class="sc">/</span>shiny<span class="sc">-</span>verse</span></code></pre></div>
+</div>
+<h3 id="컨테이너-생성-및-실행-1">컨테이너 생성 및 실행</h3>
+<p>이번에는 Docker Desktop를 이용해서 컨테이너를 생성하고 실행합니다. 다음은 <strong>Optional Settings 다이얼로그 창</strong>에서의 환경설정 내용입니다.</p>
 <ul>
-<li>rocker/shiny + rocker/shiny-verse</li>
+<li>Container Name: shiny-server</li>
+<li>Ports:
+<ul>
+<li>Local Host: 3838</li>
+<li>Container Port: default</li>
+</ul></li>
+<li>BitStat 애플리케이션 Path
+<ul>
+<li>Host Path: BitStat 애플리케이션이 있는 호스트 경로</li>
+<li>Container Path: /srv/shiny-server</li>
+</ul></li>
+<li>BitStat 애플리케이션 Path
+<ul>
+<li>Host Path: Shiny 서버 로그를 저장할 호스트 경로</li>
+<li>Container Path: /var/log/shiny-server</li>
+</ul></li>
 </ul>
-<p>다음 명령으로 docker 허브 저장소로부터 docker 이미지를 가져옵니다.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pull rocker<span class="sc">/</span>shiny<span class="sc">-</span>verse</span></code></pre></div>
-</div>
-<p>이미지 목록에서 가져온 Shiny 이미지를 확인할 수 있습니다.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>docker images </span></code></pre></div>
-</div>
-<h3 id="shiny-서버-실행하기">Shiny 서버 실행하기</h3>
-<p>다음 run 명령으로 docker 컨테이너를 생성하고 실행합니다. 즉, Shiny 서버를 실행합니다.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">--</span>rm <span class="sc">-</span>p <span class="dv">3838</span><span class="sc">:</span><span class="dv">3838</span> rocker<span class="sc">/</span>shiny<span class="sc">-</span>verse</span></code></pre></div>
-</div>
-<p>서버가 실행되면, <a href="http://localhost:3838" class="uri">http://localhost:3838</a> URL에서 Shiny 데모 애플리케이션을 실행할 수 있습니다.</p>
 <figure>
-<img src="img/demo.png" alt="Shiny 데모 애플리케이션" /><figcaption aria-hidden="true">Shiny 데모 애플리케이션</figcaption>
+<img src="img/options-2.png" alt="Optional Settings 다이얼로그 창" /><figcaption aria-hidden="true">Optional Settings 다이얼로그 창</figcaption>
+</figure>
+<h2 id="bitstat-애플리케이션-실행">BitStat 애플리케이션 실행</h2>
+<p>이제는 <a href="http://localhost:3838/BitStat/" class="uri">http://localhost:3838/BitStat/</a> URL로 BitStat 애플리케이션을 실행할 수 있습니다.</p>
+<p>실행된 BitStat 애플리케이션 화면은 다음과 같습니다.</p>
+<figure>
+<img src="img/bitstat.png" alt="BiStat 애플리케이션" /><figcaption aria-hidden="true">BiStat 애플리케이션</figcaption>
 </figure>
 <h2 id="결언">결언</h2>
-<p>docker 컨테이너로 Shiny 데모 애플리케이션을 구동할 수 있습니다. 그러나 아직은 사용자가 개발한 애플리케이션을 구동하기 위한 docker 환경은 아닙니다. 추가적인 환경 설정이 필요해 보입니다.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>이제 docker 환경에서 BitStat 애플리케이션을 실행할 수 있습니다. 추가로 개발하는 Shiny 애플리케이션은 앞에서 정의한 로컬 호스트의 /Users/choonghyunryu/shiny-server/ 디렉토리에 배포하면 됩니다.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

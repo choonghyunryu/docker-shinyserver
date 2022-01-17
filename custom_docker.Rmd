@@ -95,7 +95,7 @@ Docker Desktop을 사용하지 않는다면, 다음의 명령어로도 간단하
 
 ```{r, eval=FALSE, echo=TRUE}
 docker run -d -p 3838:3838 \
-    -v /Users/choonghyunryu/web/html/shiny/:/srv/shiny-server/ \
+    -v /Users/choonghyunryu/shiny-server/:/srv/shiny-server/ \
     -v /Users/choonghyunryu/Documents/99_logos/shiny/:/var/log/shiny-server/ \
     rocker/shiny
 ```
@@ -103,7 +103,7 @@ docker run -d -p 3838:3838 \
 ## BitStat 애플리케이션 실행
 이제는 http://localhost:3838 URL로 Shiny 서버 데모가 실행되지 않습니다. Shiny 서버의 홈 디렉토리 호스트의 경로로 변경했기 때문입니다. 이제는 이  URL은 다음과 같은 화면을 출력합니다.
 
-로컬 호스트의 /Users/choonghyunryu/web/html/shiny/ 디렉토리에는 서브 디렉토리로 BitStat 애플리케이션이 위치하기 때문입니다.
+로컬 호스트의 /Users/choonghyunryu/shiny-server/ 디렉토리에는 서브 디렉토리로 BitStat 애플리케이션이 위치하기 때문입니다.
 
 ![Shiny 서버 홈디렉토리 애플리케이션](img/localhost.png)
 
