@@ -141,6 +141,16 @@ docker rmi rocker/shiny-verse
 
 ![Optional Settings 다이얼로그 창](img/options-2.png)
 
+다음 명령도로 동일한 기능을 수행합니다. --name 옵션은 컨테이너의 이름을 지정합니다.
+-p, -v는 각각 포트와 볼륨을 정의합니다.
+
+```{r, eval=FALSE, echo=TRUE}
+docker run -d -p 3838:3838 --name shiny-server \
+    -v /Users/choonghyunryu/shiny-server/:/srv/shiny-server/ \
+    -v /Users/choonghyunryu/Documents/99_logos/shiny/:/var/log/shiny-server/ \
+    shiny:first
+```
+
 
 ## BitStat 애플리케이션 실행
 

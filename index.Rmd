@@ -55,7 +55,7 @@ Shiny 서버의 운영을 위해서 [rocker/shiny-verse](https://hub.docker.com/
 
 * rocker/shiny + rocker/shiny-verse
 
-다음 명령으로 docker 허브 저장소로부터 docker 이미지를 가져옵니다.
+다음 명령으로 docker hub 저장소로부터 docker 이미지를 가져옵니다.
 
 ```{r, eval=FALSE, echo=TRUE}
 pull rocker/shiny-verse

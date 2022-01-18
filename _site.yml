@@ -7,7 +7,7 @@ navbar:
   right:
     - text: "docker 이미지 설치하기"
       href: index.html
-    - text: "docker 환경 설정하기"
+    - text: "docker 컨테이너 환경 설정하기"
       href: custom_docker.html
     - text: "docker 이미지 만들기"
       href: custom_image.html            

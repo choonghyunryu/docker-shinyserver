@@ -2517,7 +2517,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="nav-right">
 <a href="index.html">docker 이미지 설치하기</a>
-<a href="custom_docker.html">docker 환경 설정하기</a>
+<a href="custom_docker.html">docker 컨테이너 환경 설정하기</a>
 <a href="custom_image.html">docker 이미지 만들기</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2662,6 +2662,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <figure>
 <img src="img/options-2.png" alt="Optional Settings 다이얼로그 창" /><figcaption aria-hidden="true">Optional Settings 다이얼로그 창</figcaption>
 </figure>
+<p>다음 명령도로 동일한 기능을 수행합니다. –name 옵션은 컨테이너의 이름을 지정합니다. -p, -v는 각각 포트와 볼륨을 정의합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>d <span class="sc">-</span>p <span class="dv">3838</span><span class="sc">:</span><span class="dv">3838</span> <span class="sc">--</span>name shiny<span class="sc">-</span>server \</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>choonghyunryu<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span><span class="er">:/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span> \</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>choonghyunryu<span class="sc">/</span>Documents<span class="sc">/</span>99_logos<span class="sc">/</span>shiny<span class="sc">/</span><span class="er">:/</span>var<span class="sc">/</span>log<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span> \</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">:</span>first</span></code></pre></div>
+</div>
 <h2 id="bitstat-애플리케이션-실행">BitStat 애플리케이션 실행</h2>
 <p>이제는 <a href="http://localhost:3838/BitStat/" class="uri">http://localhost:3838/BitStat/</a> URL로 BitStat 애플리케이션을 실행할 수 있습니다.</p>
 <p>실행된 BitStat 애플리케이션 화면은 다음과 같습니다.</p>
@@ -2670,7 +2677,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <h2 id="결언">결언</h2>
 <p>이제 docker 환경에서 BitStat 애플리케이션을 실행할 수 있습니다. 추가로 개발하는 Shiny 애플리케이션은 앞에서 정의한 로컬 호스트의 /Users/choonghyunryu/shiny-server/ 디렉토리에 배포하면 됩니다.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
