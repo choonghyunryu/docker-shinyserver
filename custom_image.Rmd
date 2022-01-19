@@ -32,7 +32,7 @@ xaringanExtra :: use_panelset()
 
 Dockerfile은 컨테이너 내부에 유틸리티나 R 패키지를 설치할 수 있는 방법을 제공합니다. 즉, rocker/shiny-verse 이미지에서 지원하지 못했던, 애플리케이션을 실행시키는데 필요한 패키지를 설치할 수 있습니다.
 
-다음과 같은 내용의 Dockerfile 파일을 작성합니다.
+다음과 같은 내용의 Dockerfile 파일을 작성합니다. 의외로 설치하는 R 패키지가 많은 이유는, BitStat뿐만 아니라 개인적으로 만든 여러 개의 Shiny 애플리케이션을 이 환경에서 구동하기 위함입니다.  
 
 ```{r, eval=FALSE, echo=TRUE}
 FROM rocker/shiny:latest
@@ -56,14 +56,32 @@ RUN R -e "install.packages('shinydashboardPlus', repos = 'http://cran.rstudio.co
 RUN R -e "install.packages('shinyWidgets',       repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('shinybusy',          repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('shinythemes',        repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('shinycssloaders',    repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('colourpicker',       repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('htmltools',          repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('htmltools',          repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('reactable',          repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('glue',               repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('xlsx',               repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('flextable',          repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('googleVis',          repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('readr',              repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('forcats',            repos = 'http://cran.rstudio.com/')"
 RUN R -e "install.packages('plotly',             repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('DBI',                repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('waffle',             repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('RSQLite',            repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('remotes',            repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('dbplyr',             repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('ggthemes',           repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('treemapify',         repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('sparkline',          repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('formattable',        repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('DT',                 repos = 'http://cran.rstudio.com/')"
+RUN R -e "install.packages('tidyverse',          repos = 'http://cran.rstudio.com/')"
+RUN R -e "remotes::install_github('dreamRs/shinytreeview')"
+
+USER shiny
 ```
 
 ### 베이스 이미지 가져오기
@@ -103,6 +121,16 @@ RUN R -e "install.packages('rJava', repos = 'http://cran.rstudio.com/')"
 
 ### 포트지정
 컨테이너가 사용할 포트를 지정하기 위해서 **EXPOSE** 명령어를 사용하지 않아도 됩니다. 베이스 이미지로 'rocker/shiny'를 사용했기 때문입니다. 이 베이스 이미지에 이미 **EXPOSE** 명령어로 3838 포트를 컨테이너가 사용할 수 있도록 설정되어 있기 때문입니다.
+
+### 사용자 전환
+root 권한으로 컨테이너를 실행하면, 무제한의 권한이 부여되므로, 보안 측면에서 취약할 수 있습니다. 그래서 다음처럼 일반 사용자인 shiny 사용자 계정으로 컨테이너를 실행하도록 설정합니다.
+
+이지 베이스 이미지인 rocker/shiny-verse에서 shiny라는 그룹과 사용자를 만들어 놓았기 때문에 해당 사용자 계정을 만들 필요는 없습니다.
+
+```{r, eval=FALSE, echo=TRUE}
+USER shiny
+```
+
 
 ## docker 이미지 생성
 앞에서 만든 Dockerfile는 ./shiny-docker 경로에 저장했습니다. 이 Dockerfile을 빌드해서 docker 이미지를 생성합니다. 
@@ -147,10 +175,13 @@ docker rmi rocker/shiny-verse
 ```{r, eval=FALSE, echo=TRUE}
 docker run -d -p 3838:3838 --name shiny-server \
     -v /Users/choonghyunryu/shiny-server/:/srv/shiny-server/ \
-    -v /Users/choonghyunryu/Documents/99_logos/shiny/:/var/log/shiny-server/ \
+    -v /Users/choonghyunryu/Documents/99_logs/shiny/:/var/log/shiny-server/ \
     shiny:first
 ```
 
+컨테이너를 실행한 후 콘솔로 들어가서 프로세스를 확인하면, 다음처럼 shiny 계정으로 shiny 서버 프로세스가 실행되었음을 확인할 수 있습니다.
+
+![프로세스 현황](img/process.png)
 
 ## BitStat 애플리케이션 실행
 
@@ -163,5 +194,13 @@ docker run -d -p 3838:3838 --name shiny-server \
 ## 결언
 
 이제 docker 환경에서 BitStat 애플리케이션을 실행할 수 있습니다. 추가로 개발하는 Shiny 애플리케이션은 앞에서 정의한 로컬 호스트의 /Users/choonghyunryu/shiny-server/ 디렉토리에 배포하면 됩니다.
+
+어느 정도 목적하는 환경의 Shiny 서버를 구동하려면, 결국은 docker 이미지를 만들어야할 수 밖에 없습니다. 개인적으로 Shiny 애플리케이션의 데모 환경을 만들려는 목적으로 시도한 작업입니다만, docker의 매력을 느끼기에 충분했습니다.
+
+R과 Shiny를 사용하기에는 MS-Windows 환경이 부족함이 없지 않습니다. 여러 사람들과 협업을 하기 위해서는 동일한 환경에서의 작업이 중요합니다. 이런 대안으로 docker 환경에서 R과 Shiny를 사용하는 것이 유용한 대안이 될 것 같습니다.
+
+
+
+
 
 

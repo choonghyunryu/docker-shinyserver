@@ -97,7 +97,7 @@ Docker Desktop을 사용하지 않는다면, 다음의 명령어로도 간단하
 ```{r, eval=FALSE, echo=TRUE}
 docker run -d -p 3838:3838 --name shiny-server \
     -v /Users/choonghyunryu/shiny-server/:/srv/shiny-server/ \
-    -v /Users/choonghyunryu/Documents/99_logos/shiny/:/var/log/shiny-server/ \
+    -v /Users/choonghyunryu/Documents/99_logs/shiny/:/var/log/shiny-server/ \
     rocker/shiny
 ```
 

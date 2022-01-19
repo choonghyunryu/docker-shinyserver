@@ -2551,6 +2551,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#개발-라이브러리-설치하기">개발 라이브러리 설치하기</a></li>
 <li><a href="#r-패키지-설치하기">R 패키지 설치하기</a></li>
 <li><a href="#포트지정">포트지정</a></li>
+<li><a href="#사용자-전환">사용자 전환</a></li>
 </ul></li>
 <li><a href="#docker-이미지-생성">docker 이미지 생성</a></li>
 <li><a href="#컨테이너-생성-및-실행">컨테이너 생성 및 실행</a>
@@ -2566,7 +2567,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="dockerfile-만들기">Dockerfile 만들기</h2>
 <p>이제 완전하게 Shiny 애플리케이션이 운용될 docker 컨테이너를 만들고 실행할 차례입니다.</p>
 <p>Dockerfile은 컨테이너 내부에 유틸리티나 R 패키지를 설치할 수 있는 방법을 제공합니다. 즉, rocker/shiny-verse 이미지에서 지원하지 못했던, 애플리케이션을 실행시키는데 필요한 패키지를 설치할 수 있습니다.</p>
-<p>다음과 같은 내용의 Dockerfile 파일을 작성합니다.</p>
+<p>다음과 같은 내용의 Dockerfile 파일을 작성합니다. 의외로 설치하는 R 패키지가 많은 이유는, BitStat뿐만 아니라 개인적으로 만든 여러 개의 Shiny 애플리케이션을 이 환경에서 구동하기 위함입니다.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FROM rocker<span class="sc">/</span>shiny<span class="sc">:</span>latest</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2589,14 +2590,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinyWidgets&#39;,       repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinybusy&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinythemes&#39;,        repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;colourpicker&#39;,       repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;reactable&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;glue&#39;,               repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;xlsx&#39;,               repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;flextable&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;googleVis&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;readr&#39;,              repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;plotly&#39;,             repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span></code></pre></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;shinycssloaders&#39;,    repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;colourpicker&#39;,       repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;htmltools&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;htmltools&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;reactable&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;glue&#39;,               repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;xlsx&#39;,               repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;flextable&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;googleVis&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;readr&#39;,              repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;forcats&#39;,            repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;plotly&#39;,             repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;DBI&#39;,                repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;waffle&#39;,             repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;RSQLite&#39;,            repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;remotes&#39;,            repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;dbplyr&#39;,             repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;ggthemes&#39;,           repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;treemapify&#39;,         repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;sparkline&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;formattable&#39;,        repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;DT&#39;,                 repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;install.packages(&#39;tidyverse&#39;,          repos = &#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&quot;remotes::install_github(&#39;dreamRs/shinytreeview&#39;)&quot;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>USER shiny</span></code></pre></div>
 </div>
 <h3 id="베이스-이미지-가져오기">베이스 이미지 가져오기</h3>
 <p>다음 <strong>FROM 명령어</strong>는 docker hub에서 ‘rocker/shiny’ 이미지의 최신 버전(lasett)을 가져오라는 의미입니디. 이 이미지를 베이스 이미지로 사용할 것입니다. 이미 앞에서 사용했던 이미지입니다.</p>
@@ -2626,18 +2645,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h3 id="포트지정">포트지정</h3>
 <p>컨테이너가 사용할 포트를 지정하기 위해서 <strong>EXPOSE</strong> 명령어를 사용하지 않아도 됩니다. 베이스 이미지로 ’rocker/shiny’를 사용했기 때문입니다. 이 베이스 이미지에 이미 <strong>EXPOSE</strong> 명령어로 3838 포트를 컨테이너가 사용할 수 있도록 설정되어 있기 때문입니다.</p>
+<h3 id="사용자-전환">사용자 전환</h3>
+<p>root 권한으로 컨테이너를 실행하면, 무제한의 권한이 부여되므로, 보안 측면에서 취약할 수 있습니다. 그래서 다음처럼 일반 사용자인 shiny 사용자 계정으로 컨테이너를 실행하도록 설정합니다.</p>
+<p>이지 베이스 이미지인 rocker/shiny-verse에서 shiny라는 그룹과 사용자를 만들어 놓았기 때문에 해당 사용자 계정을 만들 필요는 없습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>USER shiny</span></code></pre></div>
+</div>
 <h2 id="docker-이미지-생성">docker 이미지 생성</h2>
 <p>앞에서 만든 Dockerfile는 ./shiny-docker 경로에 저장했습니다. 이 Dockerfile을 빌드해서 docker 이미지를 생성합니다.</p>
 <p>build 명령어로 이미지를 생성합니다. -t 옵션은 생성할 이미지의 이름을 지정합니다. 이미지 이름을 ’shiny’로 지정했습니다.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>docker build <span class="sc">-</span>t shiny<span class="sc">:</span>first .<span class="sc">/</span>shiny<span class="sc">-</span>docker</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>docker build <span class="sc">-</span>t shiny<span class="sc">:</span>first .<span class="sc">/</span>shiny<span class="sc">-</span>docker</span></code></pre></div>
 </div>
 <h2 id="컨테이너-생성-및-실행">컨테이너 생성 및 실행</h2>
 <h3 id="기존-컨테이너와-이미지-삭제">기존 컨테이너와 이미지 삭제</h3>
 <p>이제 앞에서 만들었던 ‘rocker/shiny-verse’ 이미지와 ‘shiny-server’ 컨테이너는 필요가 없어졌습니다. 그래서 다음처럼 컨테이너와 이미지를 차례대로 삭제합니다.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>docker rm <span class="sc">-</span>f shiny<span class="sc">-</span>server</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>docker rmi rocker<span class="sc">/</span>shiny<span class="sc">-</span>verse</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>docker rm <span class="sc">-</span>f shiny<span class="sc">-</span>server</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>docker rmi rocker<span class="sc">/</span>shiny<span class="sc">-</span>verse</span></code></pre></div>
 </div>
 <h3 id="컨테이너-생성-및-실행-1">컨테이너 생성 및 실행</h3>
 <p>이번에는 Docker Desktop를 이용해서 컨테이너를 생성하고 실행합니다. 다음은 <strong>Optional Settings 다이얼로그 창</strong>에서의 환경설정 내용입니다.</p>
@@ -2664,11 +2689,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <p>다음 명령도로 동일한 기능을 수행합니다. –name 옵션은 컨테이너의 이름을 지정합니다. -p, -v는 각각 포트와 볼륨을 정의합니다.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>d <span class="sc">-</span>p <span class="dv">3838</span><span class="sc">:</span><span class="dv">3838</span> <span class="sc">--</span>name shiny<span class="sc">-</span>server \</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>choonghyunryu<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span><span class="er">:/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span> \</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>choonghyunryu<span class="sc">/</span>Documents<span class="sc">/</span>99_logos<span class="sc">/</span>shiny<span class="sc">/</span><span class="er">:/</span>var<span class="sc">/</span>log<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span> \</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">:</span>first</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>d <span class="sc">-</span>p <span class="dv">3838</span><span class="sc">:</span><span class="dv">3838</span> <span class="sc">--</span>name shiny<span class="sc">-</span>server \</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>choonghyunryu<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span><span class="er">:/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span> \</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>choonghyunryu<span class="sc">/</span>Documents<span class="sc">/</span>99_logs<span class="sc">/</span>shiny<span class="sc">/</span><span class="er">:/</span>var<span class="sc">/</span>log<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span> \</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">:</span>first</span></code></pre></div>
 </div>
+<p>컨테이너를 실행한 후 콘솔로 들어가서 프로세스를 확인하면, 다음처럼 shiny 계정으로 shiny 서버 프로세스가 실행되었음을 확인할 수 있습니다.</p>
+<figure>
+<img src="img/process.png" alt="프로세스 현황" /><figcaption aria-hidden="true">프로세스 현황</figcaption>
+</figure>
 <h2 id="bitstat-애플리케이션-실행">BitStat 애플리케이션 실행</h2>
 <p>이제는 <a href="http://localhost:3838/BitStat/" class="uri">http://localhost:3838/BitStat/</a> URL로 BitStat 애플리케이션을 실행할 수 있습니다.</p>
 <p>실행된 BitStat 애플리케이션 화면은 다음과 같습니다.</p>
@@ -2677,7 +2706,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <h2 id="결언">결언</h2>
 <p>이제 docker 환경에서 BitStat 애플리케이션을 실행할 수 있습니다. 추가로 개발하는 Shiny 애플리케이션은 앞에서 정의한 로컬 호스트의 /Users/choonghyunryu/shiny-server/ 디렉토리에 배포하면 됩니다.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>어느 정도 목적하는 환경의 Shiny 서버를 구동하려면, 결국은 docker 이미지를 만들어야할 수 밖에 없습니다. 개인적으로 Shiny 애플리케이션의 데모 환경을 만들려는 목적으로 시도한 작업입니다만, docker의 매력을 느끼기에 충분했습니다.</p>
+<p>R과 Shiny를 사용하기에는 MS-Windows 환경이 부족함이 없지 않습니다. 여러 사람들과 협업을 하기 위해서는 동일한 환경에서의 작업이 중요합니다. 이런 대안으로 docker 환경에서 R과 Shiny를 사용하는 것이 유용한 대안이 될 것 같습니다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
