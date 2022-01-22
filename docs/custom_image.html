@@ -2572,6 +2572,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 </nav>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/Dockerfile.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<p>삽화출처: <a href="https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/implementing-embedded-continuous-integration-with-jenkins-and-docker-part-1">Implementing Embedded Continuous Integration with Jenkins and Docker: Part1</a></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="preface">
+<h4>들어가기</h4>
+docker의 꽃은 Dockerfile입니다.
+<br/>
+Dockerfile로 BisStat를 비롯한 몇개의 Shiny 애플리케이션을 실행할 수 있는 환경을 커스트마이징합니다.
+<br/>
+docker 꽃이 활짝 피겠군요.
+</div>
+</div>
+<p><br></p>
 <h2 id="dockerfile-만들기">Dockerfile 만들기</h2>
 <p>이제 완전하게 Shiny 애플리케이션이 운용될 docker 컨테이너를 만들고 실행할 차례입니다.</p>
 <p>Makefile이 C/C++로 개발된 소스를 컴파일하고 배포하는 make의 룰을 정의한 파일이라면, Dockerfile은 docker 이미지를 생성하는 방법을 정의한 파일입니다. Dockerfile을 이용하면, 컨테이너 내부에 유틸리티, 개발 라이브러리나 R 패키지를 설치할 수 있습니다. 즉 rocker/shiny-verse 이미지에서 지원하지 못했던, 애플리케이션을 실행시키는데 필요한 패키지를 설치할 수 있습니다.</p>

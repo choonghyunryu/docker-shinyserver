@@ -27,6 +27,22 @@ library(htmltools)
 xaringanExtra :: use_panelset()
 ```
 
+
+```{r Dockerfile, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("img/docker-container.png")
+```
+삽화출처: [초보를 위한 도커 안내서 - 도커란 무엇인가?](https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html)
+
+```{r, preface, echo=FALSE}
+div(class = "preface", 
+    h4("들어가기"),
+    "컨테이너 환경설정이라 말하고 실행만 합니다. ", br(),
+    "docker 컨테이너를 실행하는 옵션을 GUI 화면에서 어렵게 시도합니다.", br(),
+    "CLI에서는 간단한 것을? 그러나 전문가가 아니니까요. Docker Desktop을 애용한답니다.")
+```
+
+<br>
+
 ## docker 컨테이너 환경 설정하기
 우리는 Shiny 데모 애플리케이션을 실행하기 위해서 Shiny 서버를 설치하지는 않을 것입니다. Shiny 데모 애플리케이션이 구동되는 최소 환경은 "아 Shiny 애플리케이션이 서버가 docker 환경에서 실행되는 구나" 정도를 인지할 뿐, 사용자가 개발한 애플리케이션을 운영하기 위해서는 몇가지 작업을 수행해야 합니다.  
 

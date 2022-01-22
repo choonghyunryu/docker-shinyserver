@@ -27,6 +27,21 @@ library(htmltools)
 xaringanExtra :: use_panelset()
 ```
 
+```{r Dockerfile, echo=FALSE, out.width = "90%"}
+knitr::include_graphics("img/Dockerfile.png")
+```
+삽화출처: [Implementing Embedded Continuous Integration with Jenkins and Docker: Part1](https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/implementing-embedded-continuous-integration-with-jenkins-and-docker-part-1)
+
+```{r, preface, echo=FALSE}
+div(class = "preface", 
+    h4("들어가기"),
+    "docker의 꽃은 Dockerfile입니다.", br(),
+    "Dockerfile로 BisStat를 비롯한 몇개의 Shiny 애플리케이션을 실행할 수 있는 환경을 커스트마이징합니다.", br(),
+    "docker 꽃이 활짝 피겠군요.")
+```
+
+<br>
+
 ## Dockerfile 만들기
 이제 완전하게 Shiny 애플리케이션이 운용될 docker 컨테이너를 만들고 실행할 차례입니다.
 
